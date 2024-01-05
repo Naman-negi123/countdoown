@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>digital watch</title>
+</head>
+<style>
+    * {
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+    }
+    .main h1{
+        position: absolute;
+        font-size: 40px;
+        top:40%;
+        left:43%;
+    }
+    .time{
+        display: flex;
+        position: absolute;
+        top:50%;
+        left:42%;
+        font-size: 50px;
+        font-weight: bold;
+    }
+
+
+</style>
+
+<body>
+    <div class="main">
+        <h1>digital Watch</h1>
+        <div class="time">
+            <p id="hours">00</p>
+            <span>:</span>
+            <p id="min">00</p>
+            <span>:</span>
+            <p id="sec">00</p>
+            <span id="period">AM</span>
+
+        </div>
+
+    </div>
+    <script>
+        function displaytime(){
+            let dateTime = new Date();
+            let hours = dateTime.getHours();
+            let min = dateTime.getMinutes();
+            let sec = dateTime.getSeconds();
+            let session = document.getElementById("period");
+        
+
+            if(hours >=12){
+                session.innerHTML = "PM"
+
+            }
+            if(hours >12){
+                hours = hours-12
+            }
+
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("min").innerHTML = min;
+            document.getElementById("sec").innerHTML = sec;
+
+        }
+
+setInterval(displaytime,10)
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
